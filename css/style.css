@@ -1,0 +1,50 @@
+@import url("https://rawgithub.com/gpeid/Ruby_Files/ruby-textarea/css/style.css");
+input, textarea {
+  width: 100%; }
+
+body {
+  font-size: 1vw; }
+
+xmp {
+  display: inline; }
+
+input, select, textarea {
+  color: #3e3e3e; }
+
+.clear {
+  clear: both; }
+
+#release-notes .release-update {
+  background-color: #eeeeee;
+  margin-bottom: 10px;
+  overflow: hidden; }
+  #release-notes .release-update > * {
+    display: none; }
+  #release-notes .release-update h4 {
+    display: block;
+    cursor: pointer;
+    margin: 0px; }
+
+.client .service-area-container {
+  float: left; }
+  .client .service-area-container .service-area {
+    cursor: pointer; }
+  .client .service-area-container input[type="button"] {
+    width: 100%; }
+
+.client > * {
+  font-size: 0.8em; }
+
+#input .left, #input .right {
+  margin-bottom: 15px; }
+
+#output h4 {
+  margin-top: 0px; }
+
+#hideInput {
+  display: none;
+  position: fixed;
+  right: 0; }
+
+input[type="submit"] {
+  cursor: pointer; }
