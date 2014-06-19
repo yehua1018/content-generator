@@ -1,0 +1,8 @@
+order deny,allow
+deny from 74.92.156.208
+deny from 74.92.156.209
+deny from 74.92.156.210
+deny from 74.92.156.211
+
+
+#ErrorDocument 403 /george/csgen/403.html
