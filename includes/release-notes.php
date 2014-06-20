@@ -1,4 +1,4 @@
-	<p>Description: Tool to reproduce a large amount of "Geopages". Using City and State placeholders, users can enter in specific areas for a geopage template and reproduce content based on those cities.</p>
+	<p>Description: Tool to reproduce a large amount of content based on place holders for the "City" and the "State". Using City and State placeholders, users can enter in specific areas for a geopage template and reproduce content based on those cities.</p>
 	<p>This tool will require some very basic HTML knowledge.</p>
 	<p>If you find any bugs or have any suggestions on how to make this better, email, chat, or text me.</p>
 
@@ -81,5 +81,3 @@
 		<li>Custom user input cities field.</li>
 		<li><span style="background: black; color: black;">Counties list (Changing to additioal replacement)</span></li>
 	</ul>
-
-	

@@ -1,6 +1,6 @@
 <?php
 // George Hea Diep
-// Mass content production
+// Mass content generator
 
 // magic quotes causing escape slashes to appear in all ' and " 
 // turn off magic quotes on BCM server
@@ -65,6 +65,7 @@ $other_replacement2 = $_POST['other_replacement2'];
 			$geourl = str_replace("{replace2}", $other_replacement2, $geourl);
 			$geourl = str_replace(",", '', $geourl);
 			$geourl = str_replace("'", '', $geourl);
+			$geourl = str_replace(".", '', $geourl);
 			$geourl = str_replace(" ", '-', $geourl);
 			$geourl = strtolower($geourl);
 			print "<label for='$cityselect-url'>Optimized URL:</label>";
@@ -72,10 +73,16 @@ $other_replacement2 = $_POST['other_replacement2'];
 
 
 			// Title tag
+			$geotitletag = str_replace("'", '\'', $geotitletag);
 			$geotitletag = str_replace("{city}", $cityselect, $template_titletag);
 			$geotitletag = str_replace("{state}", $state, $geotitletag);
 			$geotitletag = str_replace("{replace1}", $other_replacement1, $geotitletag);
 			$geotitletag = str_replace("{replace2}", $other_replacement2, $geotitletag);
+			$geotitletag = str_replace("—", '&mdash;', $geotitletag);
+			$geotitletag = str_replace("–", '&ndash;', $geotitletag);
+			$geotitletag = str_replace("…", '&hellip;', $geotitletag);
+			$geotitletag = str_replace("’", '&rsquo;', $geotitletag);
+			$geotitletag = str_replace("»", '&raquo;', $geotitletag);
 			print "<label for='$cityselect-titletag'>Title Tag:</label>";
 			print "<input name='template_titletag' id='$cityselect-titletag' type='text' value='$geotitletag' />";
 
@@ -94,6 +101,12 @@ $other_replacement2 = $_POST['other_replacement2'];
 			$geopage = str_replace("{state}", $state, $geopage);
 			$geopage = str_replace("{replace1}", $other_replacement1, $geopage);
 			$geopage = str_replace("{replace2}", $other_replacement2, $geopage);
+			$geopage = str_replace("—", '&mdash;', $geopage);
+			$geopage = str_replace("–", '&ndash;', $geopage);
+			$geopage = str_replace("…", '&hellip;', $geopage);
+			$geopage = str_replace("’", '&rsquo;', $geopage);
+			$geopage = str_replace("»", '&raquo;', $geopage);
+
 			// magic quotes enabled on BCM server->following removes it
 			//$geopage = str_replace(array('"', "'"), '', stripslashes($geopage));
 
@@ -149,6 +162,7 @@ $other_replacement2 = $_POST['other_replacement2'];
 			$geourl = str_replace("{replace2}", $other_replacement2, $geourl);
 			$geourl = str_replace(",", '', $geourl);
 			$geourl = str_replace("'", '', $geourl);
+			$geourl = str_replace(".", '', $geourl);
 			$geourl = str_replace(" ", '-', $geourl);
 			$geourl = strtolower($geourl);
 			print "<label for='$cityinputs-url'>Optimized URL:</label>";
@@ -156,10 +170,16 @@ $other_replacement2 = $_POST['other_replacement2'];
 
 
 			// Title tag
+			$geotitletag = str_replace("'", '\'', $geotitletag);
 			$geotitletag = str_replace("{city}", $cityinputs, $template_titletag);
 			$geotitletag = str_replace("{state}", $state, $geotitletag);
 			$geotitletag = str_replace("{replace1}", $other_replacement1, $geotitletag);
 			$geotitletag = str_replace("{replace2}", $other_replacement2, $geotitletag);
+			$geotitletag = str_replace("—", '&mdash;', $geotitletag);
+			$geotitletag = str_replace("–", '&ndash;', $geotitletag);
+			$geotitletag = str_replace("…", '&hellip;', $geotitletag);
+			$geotitletag = str_replace("’", '&rsquo;', $geotitletag);
+			$geotitletag = str_replace("»", '&raquo;', $geotitletag);
 			print "<label for='$cityinputs-titletag'>Title Tag:</label>";
 			print "<input name='template_titletag' id='$cityinputs-titletag' type='text' value='$geotitletag' />";
 
@@ -178,6 +198,12 @@ $other_replacement2 = $_POST['other_replacement2'];
 			$geopage = str_replace("{state}", $state, $geopage);
 			$geopage = str_replace("{replace1}", $other_replacement1, $geopage);
 			$geopage = str_replace("{replace2}", $other_replacement2, $geopage);
+			$geopage = str_replace("—", '&mdash;', $geopage);
+			$geopage = str_replace("–", '&ndash;', $geopage);
+			$geopage = str_replace("…", '&hellip;', $geopage);
+			$geopage = str_replace("’", '&rsquo;', $geopage);
+			$geopage = str_replace("»", '&raquo;', $geopage);
+
 			// magic quotes enabled on BCM server->following removes it
 			//$geopage = str_replace(array('"', "'"), '', stripslashes($geopage));
 
@@ -247,7 +273,7 @@ function csgenerator(){
 
 <html>
 <head>
-	<title>City State Generator</title>
+	<title>Content Generator/Term Replacement</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
 	<?php
@@ -275,7 +301,7 @@ function csgenerator(){
 <body>
 <button id="hideInput" type="button">Show/Hide Input</button>
 
-<h1>City State Generator</h1>
+<h1>Content Generator/Term Replacement</h1>
 
 
 <div id="release-notes">
@@ -300,8 +326,8 @@ function csgenerator(){
 
 
 	<form action="index.php#output" method="POST">
-	<label>Select Client:</label><br>
-		<?php include 'includes/client-list.php'; ?>
+	<!-- <label>Select City Grouping:</label><br> -->
+		<?php //include 'includes/client-list.php'; ?>
 
 
 
@@ -309,10 +335,10 @@ function csgenerator(){
 
 		<div class="left" style="margin-right: 1%;">
 
-			<label for="city">Cities:</label><br>
+			<!-- <label for="city">Cities:</label><br> -->
 
 
-			<?php include 'includes/client-hubs.php'; ?>
+			<?php //include 'includes/client-hubs.php'; ?>
 		<div class="clear"></div>
 			<label for="other-city">Comma Separated Cities:</label>
 			<textarea style="height: 100px;" id="comma-separated" name="cityinput" placeholder="Enter comma separated cities..."></textarea>
